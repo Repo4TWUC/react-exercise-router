@@ -4,7 +4,12 @@ import Products from "./Products/Products";
 import SingleProducts from "./Products/SingleProducts";
 import MyProfile from "./MyProfile/MyProfile";
 import AboutUs from "./AboutUs/AboutUs";
-import {BrowserRouter as Router, Route, NavLink} from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Redirect, Switch
+} from "react-router-dom";
 import './App.scss';
 
 class App extends Component {
@@ -30,11 +35,17 @@ class App extends Component {
                 activeClassName="active"
             >About Us</NavLink>
           </header>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/products" component={Products}/>
-          <Route path="/products/:id" component={SingleProducts} />
-          <Route path="/my-profile" component={MyProfile}/>
-          <Route path="/about-us" component={AboutUs}/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/products" component={Products}/>
+            <Route path="/goods" >
+              <Redirect to="/products" />
+            </Route>
+            <Route path="/products/:id" component={SingleProducts} />
+            <Route path="/my-profile" component={MyProfile}/>
+            <Route path="/about-us" component={AboutUs}/>
+            <Route path="*" component={Home} />
+          </Switch>
         </Router>
     );
   }
