@@ -1,0 +1,22 @@
+.page-header {
+  position: sticky;
+  top: 0;
+  background-color: gray;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+
+  a {
+    padding: 0 10px;
+
+    &:link, &active, &:hover, &:visited {
+      text-decoration: none;
+      color: #434040;
+    }
+    &.active {
+      text-decoration: underline;
+    }
+  }
+}
