@@ -1,17 +1,13 @@
 import React, {Component} from 'react';
 import Home from "./Home/Home";
+import Products from "./Products/Products";
+import SingleProducts from "./Products/SingleProducts";
 import MyProfile from "./MyProfile/MyProfile";
 import AboutUs from "./AboutUs/AboutUs";
 import {BrowserRouter as Router, Route, NavLink} from "react-router-dom";
 import './App.scss';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      curPath: '/'
-    }
-  }
   render() {
     return (
         <Router className="app">
@@ -22,6 +18,10 @@ class App extends Component {
                 activeClassName="active"
             >Home</NavLink>
             <NavLink
+                to="/products"
+                activeClassName="active"
+            >Products</NavLink>
+            <NavLink
                 to="/my-profile"
                 activeClassName="active"
             >My Profile</NavLink>
@@ -31,6 +31,8 @@ class App extends Component {
             >About Us</NavLink>
           </header>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/products" component={Products}/>
+          <Route path="/products/:id" component={SingleProducts} />
           <Route path="/my-profile" component={MyProfile}/>
           <Route path="/about-us" component={AboutUs}/>
         </Router>

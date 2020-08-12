@@ -1,0 +1,11 @@
+.single-product {
+  padding: 30px;
+
+  .field {
+    padding: 5px 10px;
+    font-size: 20px;
+    .key {
+      text-transform: capitalize;
+    }
+  }
+}
